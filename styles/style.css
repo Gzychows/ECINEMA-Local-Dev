@@ -1,0 +1,179 @@
+/* START navbar */
+.navbar {
+  background-color: #343a40;
+  padding: 15px 10px;
+}
+.logo:hover {
+  transform: rotate(360deg);
+}
+.logo {
+  transition: transform 1s ease-in-out;
+  max-width: 100%;
+  width: 100px;
+  height: 100px;
+}
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+/* stroke effect*/
+.stroke {
+  position: relative;
+}
+
+.stroke:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: "";
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+  transition: width 0.3s ease; /* Smooth transition */
+}
+
+.stroke:hover:after {
+  width: 100%;
+}
+
+/* END navbar */
+
+/* START Container styling*/
+
+.movie-windows {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.card {
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+/* .card:hover {
+  transform: scale(1.1);
+}
+
+.card {
+  transition: transform 1s ease-in-out;
+  max-width: 75%;
+} */
+
+/* END Container styling*/
+
+/* START Register text effect */
+/* .ul_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  font-size: calc(50% + 10vw + 1vh);
+  background-size: 100% 100%;
+} */
+
+/* .ul_text .li_text {
+  list-style: none;
+  color: #228b22; 
+  font-size: 60px; 
+  font-weight: bold;
+  margin: 0 5px;
+  transition: transform 0.8s, color 0.8s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); Added text shadow 
+}*/
+
+/* .ul_text:hover li {
+  transform: rotateY(360deg);
+  color: #ff4500; 
+} */
+/* END Register text effect */
+
+/* START Footer */
+
+footer ul {
+  padding-left: 0;
+  list-style: none;
+}
+footer ul li {
+  display: inline;
+  margin: 0 15px;
+}
+.social-icons a {
+  font-size: 20px;
+  transition: color 0.3s;
+}
+.social-icons a:hover {
+  color: #ff6347;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* This makes the main content take up the available space */
+}
+footer {
+  margin-top: auto; /* Pushes the footer to the bottom of the page */
+}
+
+/* END Footer */
+
+/* Text Background Animation */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway", sans-serif;
+  background-color: #8b8b8b;
+}
+
+.text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-container h1 {
+  font-size: calc(100% + 10vw + 1vh);
+  color: rgba(225, 225, 225, 0.01);
+  background-image: url("../images/index/text_effect.jpg");
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  animation: animate 15s ease-in-out infinite;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    background-position: left top;
+  }
+  33% {
+    background-position: right bottom;
+  }
+  66% {
+    background-position: left bottom;
+  }
+}
+
+/* Adjust animation speed and font size for mobile */
+@media (max-width: 768px) {
+  .text-container h1 {
+    font-size: calc(100% + 15vw + 1vh); /* Text size on mobile */
+    animation-duration: 25s; /* Slower animation on mobile */
+  }
+}
