@@ -43,7 +43,7 @@
 
 /* END navbar */
 
-/* START Container styling*/
+/* START Page styling*/
 
 .movie-windows {
   padding-top: 50px;
@@ -55,81 +55,9 @@
   border-radius: 10px;
 }
 
-/* .card:hover {
-  transform: scale(1.1);
+.contact-button {
+  padding-bottom: 20px;
 }
-
-.card {
-  transition: transform 1s ease-in-out;
-  max-width: 75%;
-} */
-
-/* END Container styling*/
-
-/* START Register text effect */
-/* .ul_text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  font-size: calc(50% + 10vw + 1vh);
-  background-size: 100% 100%;
-} */
-
-/* .ul_text .li_text {
-  list-style: none;
-  color: #228b22; 
-  font-size: 60px; 
-  font-weight: bold;
-  margin: 0 5px;
-  transition: transform 0.8s, color 0.8s;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); Added text shadow 
-}*/
-
-/* .ul_text:hover li {
-  transform: rotateY(360deg);
-  color: #ff4500; 
-} */
-/* END Register text effect */
-
-/* START Footer */
-
-footer ul {
-  padding-left: 0;
-  list-style: none;
-}
-footer ul li {
-  display: inline;
-  margin: 0 15px;
-}
-.social-icons a {
-  font-size: 20px;
-  transition: color 0.3s;
-}
-.social-icons a:hover {
-  color: #ff6347;
-}
-
-html,
-body {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1; /* This makes the main content take up the available space */
-}
-footer {
-  margin-top: auto; /* Pushes the footer to the bottom of the page */
-}
-
-/* END Footer */
 
 /* Text Background Animation */
 body {
@@ -170,10 +98,38 @@ body {
   }
 }
 
-/* Adjust animation speed and font size for mobile */
+/* END Page styling*/
+
+/* START Footer */
+
+/* Stick footer to the bottom of the page */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+footer {
+  margin-top: auto;
+}
+
+/* END Footer */
+
+/* Adjust animation speed and font size for mobile device */
 @media (max-width: 768px) {
   .text-container h1 {
-    font-size: calc(100% + 15vw + 1vh); /* Text size on mobile */
-    animation-duration: 25s; /* Slower animation on mobile */
+    font-size: calc(100% + 15vw + 1vh);
+    animation-duration: 25s;
+  }
+  .logo {
+    transition: none;
   }
 }

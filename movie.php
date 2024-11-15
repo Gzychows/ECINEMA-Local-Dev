@@ -1,13 +1,15 @@
-<head>
-	<title>Movie</title>
-</head>
 <?php
 
 // Start session for accessing session variables if needed
 session_start();
 
-include 'includes/navbar.php';
+include 'includes/navbar.php'; ?>
 
+<head>
+	<title>Movie</title>
+</head>
+
+<?php
 
 # Get passed movie id and assign it to a variable.
 if (isset($_GET['movie_id']))

@@ -1,10 +1,13 @@
-<head>
-  <title>Cart</title>
-</head>
 <?php
 // Start session for accessing session variables if needed
 session_start();
-include 'includes/navbar.php';
+include 'includes/navbar.php'; ?>
+
+<head>
+  <title>Cart</title>
+</head>
+
+<?php
 
 // Redirect if not logged in.
 if (!isset($_SESSION['id'])) {

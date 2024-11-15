@@ -1,12 +1,3 @@
-<?php
-// session_start();
-// # Redirect if not logged in.
-// if (!isset($_SESSION['id'])) {
-//     require('login_tools.php');
-//     load();
-// }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

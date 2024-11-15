@@ -47,7 +47,7 @@ include 'includes/navbar.php';
             <div class="invalid-feedback">Please enter your message.</div>
         </div>
 
-        <div class="text-center">
+        <div class="text-center contact-button">
             <button type="submit" class="btn btn-primary">Send Message</button>
         </div>
     </form>
