@@ -35,9 +35,9 @@ function validate($link, $email = '', $pwd = '')
         $p = mysqli_real_escape_string($link, trim($pwd));
     }
 
-    # On success retrieve id, username, from 'new_users' table.
+    # On success retrieve id, firstname, from 'new_users' table.
     if (empty($errors)) {
-        $q = "SELECT id, username FROM new_users WHERE email='$e' AND password=SHA2('$p',256)";
+        $q = "SELECT id, firstname FROM new_users WHERE email='$e' AND password=SHA2('$p',256)";
         $r = mysqli_query($link, $q);
         if (@mysqli_num_rows($r) == 1) {
             $row = mysqli_fetch_array($r, MYSQLI_ASSOC);

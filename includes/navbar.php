@@ -57,13 +57,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?php if (isset($_SESSION['username'])): ?>
+                        <?php if (isset($_SESSION['firstname'])): ?>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-6 mr-2" style="width: 1.2rem; height: 1.2rem;">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                             </svg>
-                            <span class="mr-2">Hello, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                            <span class="mr-2">Hello, <?php echo htmlspecialchars($_SESSION['firstname']); ?></span>
                         <?php else: ?>
                             <!-- SVG Icon -->
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -75,7 +75,7 @@
                         <?php endif; ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <?php if (isset($_SESSION['username'])): ?>
+                        <?php if (isset($_SESSION['firstname'])): ?>
                             <a class="dropdown-item" href="#">My Bookings</a>
                             <a class="dropdown-item" href="user_account.php">Account Details</a>
                             <a class="dropdown-item" href="logout.php">Log Out</a>
@@ -87,7 +87,7 @@
                 </li>
 
                 <!-- Cart Icon for Logged-In Users -->
-                <?php if (isset($_SESSION['username'])): ?>
+                <?php if (isset($_SESSION['firstname'])): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="cart.php">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"

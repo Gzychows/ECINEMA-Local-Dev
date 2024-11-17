@@ -1,7 +1,5 @@
-<!-- NAVBAR-->
 <?php
 include 'includes/navbar.php';
-
 ?>
 
 <head>
@@ -12,7 +10,26 @@ include 'includes/navbar.php';
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h1 class="text-center my-4">Login</h1>
+
+            <!-- Display success or error messages above the email field -->
+            <?php if (isset($_SESSION['success'])): ?>
+                <div class="alert alert-success">
+                    <?php
+                    echo $_SESSION['success'];
+                    unset($_SESSION['success']); // Clear the message after displaying
+                    ?>
+                </div>
+            <?php elseif (isset($_SESSION['error'])): ?>
+                <div class="alert alert-danger">
+                    <?php
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']); // Clear the message after displaying
+                    ?>
+                </div>
+            <?php endif; ?>
+
             <form action="login_action.php" method="post" class="needs-validation">
+                <!-- Error message is now above the email field -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
                     <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email"

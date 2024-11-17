@@ -1,4 +1,5 @@
-<?php # PROCESS LOGIN ATTEMPT.
+<?php
+# PROCESS LOGIN ATTEMPT.
 
 # Check form submitted.
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,20 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         # Access session.
         session_start();
         $_SESSION['id'] = $data['id'];
-        $_SESSION['username'] = $data['username'];
-        $_SESSION['email'] = $data['email'];
+        $_SESSION['firstname'] = $data['firstname'];
         load('index.php');
     }
-    # Or on failure set errors.
+    # Or on failure set error message as a string.
     else {
-        $errors = $data;
+        session_start();  # Ensure session is started
+        $_SESSION['error'] = implode(", ", $data);  # Convert array to string if it's an array
     }
 
     # Close database connection.
     mysqli_close($link);
 }
 
-# Continue to display login page on failure.
+# Redirect to login page if there's an error.
 include('login.php');
-
 ?>

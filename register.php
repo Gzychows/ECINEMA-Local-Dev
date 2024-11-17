@@ -14,11 +14,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     # Initialize an error array.
     $errors = array();
 
-    # Check for a username.
-    if (empty($_POST['username'])) {
-        $errors[] = 'Enter your username.';
+    # Check for a First Name
+    if (empty($_POST['firstname'])) {
+        $errors[] = 'Enter your First Name.';
     } else {
-        $fn = mysqli_real_escape_string($link, trim($_POST['username']));
+        $fn = mysqli_real_escape_string($link, trim($_POST['firstname']));
+    }
+
+    # Check for a Surname.
+    if (empty($_POST['surname'])) {
+        $errors[] = 'Enter your Surname.';
+    } else {
+        $sn = mysqli_real_escape_string($link, trim($_POST['surname']));
     }
 
     # Check for an email address:
@@ -56,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     # On success register user inserting into 'new_users' database table.
     if (empty($errors)) {
-        $q = "INSERT INTO new_users (username, email, password) 
-        VALUES ('$fn', '$e', SHA2('$p',256))";
+        $q = "INSERT INTO new_users (firstname, surname, email, password) 
+        VALUES ('$fn', '$sn', '$e', SHA2('$p',256))";
         $r = @mysqli_query($link, $q);
         if ($r) {
             # Store success message in session and redirect to avoid resubmission.
@@ -109,11 +116,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <!-- Registration form -->
                 <form action="register.php" method="post" class="needs-validation" novalidate>
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username"
-                            placeholder="Enter username" value="<?php if (isset($_POST['username']))
-                                echo $_POST['username']; ?>" required>
-                        <div class="invalid-feedback">Please enter a valid username.</div>
+                        <label for="firstname">First Name</label>
+                        <input type="text" class="form-control" id="firstname" name="firstname"
+                            placeholder="Enter First Name" value="<?php if (isset($_POST['firstname']))
+                                echo $_POST['firstname']; ?>" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input type="text" class="form-control" id="surname" name="surname" placeholder="Enter Surname"
+                            value="<?php if (isset($_POST['surname']))
+                                echo $_POST['surname']; ?>" required>
                     </div>
 
                     <div class="form-group">
