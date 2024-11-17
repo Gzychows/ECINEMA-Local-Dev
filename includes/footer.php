@@ -22,11 +22,11 @@
     </div>
     <!-- Social Media Icons Section -->
     <div>
-        <div class="d-flex justify-content-center align-items-center">
+        <div class="social-icons d-flex justify-content-center align-items-center">
             <!-- Facebook -->
-            <a href="www.facebook.com"
+            <a href="https://www.facebook.com"
                 class="btn btn-outline-light btn-floating rounded-circle m-1 d-flex align-items-center justify-content-center"
-                role="button" style="width: 50px; height: 50px; padding: 0; border-width: 2px;">
+                target="_blank" role="button" style="width: 50px; height: 50px; padding: 0; border-width: 2px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="24" height="24"
                     fill="currentColor">
                     <path
@@ -34,9 +34,9 @@
                 </svg>
             </a>
             <!-- Instagram -->
-            <a href="www.instagram.com"
+            <a href="https://www.instagram.com"
                 class="btn btn-outline-light btn-floating rounded-circle m-1 d-flex align-items-center justify-content-center"
-                role="button" style="width: 50px; height: 50px; padding: 0; border-width: 2px;">
+                target="_blank" role="button" style="width: 50px; height: 50px; padding: 0; border-width: 2px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24"
                     fill="currentColor">
                     <path
@@ -44,9 +44,9 @@
                 </svg>
             </a>
             <!-- Google -->
-            <a href="www.google.com"
+            <a href="https://www.google.com"
                 class="btn btn-outline-light btn-floating rounded-circle m-1 d-flex align-items-center justify-content-center"
-                role="button" style="width: 50px; height: 50px; padding: 0; border-width: 2px;">
+                target="_blank" role="button" style="width: 50px; height: 50px; padding: 0; border-width: 2px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" width="24" height="24"
                     fill="currentColor">
                     <path

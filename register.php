@@ -1,8 +1,8 @@
-<!-- NAVBAR-->
 <?php
+session_start();
 include 'includes/navbar.php';
-?>
 
+?>
 
 <?php
 # DISPLAY COMPLETE REGISTRATION PAGE.
@@ -14,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     # Initialize an error array.
     $errors = array();
 
-    # Check for a first name.
+    # Check for a username.
     if (empty($_POST['username'])) {
-        $errors[] = 'Enter your name.';
+        $errors[] = 'Enter your username.';
     } else {
         $fn = mysqli_real_escape_string($link, trim($_POST['username']));
     }
@@ -48,39 +48,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($errors)) {
         $q = "SELECT id FROM new_users WHERE email='$e'";
         $r = @mysqli_query($link, $q);
-        if (mysqli_num_rows($r) != 0)
-            $errors[] =
-                'Email address already registered. 
-	<a class="alert-link" href="login.php">Sign In Now</a>';
+        if (mysqli_num_rows($r) != 0) {
+            $errors[] = 'Email address already registered. 
+            <a class="alert-link" href="login.php">Sign In Now</a>';
+        }
     }
 
     # On success register user inserting into 'new_users' database table.
     if (empty($errors)) {
         $q = "INSERT INTO new_users (username, email, password) 
-	VALUES ('$fn', '$e', SHA2('$p',256))";
+        VALUES ('$fn', '$e', SHA2('$p',256))";
         $r = @mysqli_query($link, $q);
         if ($r) {
-            echo '
-	<p>You are now registered.</p>
-	<a class="alert-link" href="login.php">Login</a>';
+            # Store success message in session and redirect to avoid resubmission.
+            $_SESSION['success'] = 'You are now registered. <a class="alert-link" href="login.php">Login</a>';
+            header('Location: register.php');
+            exit();
+        } else {
+            $_SESSION['error'] = 'Something went wrong. Please try again.';
         }
+    } else {
+        # Store error messages in session.
+        $_SESSION['error'] = 'The following error(s) occurred:<br>' . implode('<br>', $errors);
+    }
 
-        # Close database connection.
-        mysqli_close($link);
-        exit();
-    }
-    # Or report errors.
-    else {
-        echo '<h4>The following error(s) occurred:</h4>';
-        foreach ($errors as $msg) {
-            echo " - $msg<br>";
-        }
-        echo '<p>or please try again.</p><br>';
-        # Close database connection.
-        mysqli_close($link);
-    }
+    # Close database connection.
+    mysqli_close($link);
 }
-
 ?>
 
 <head>
@@ -88,10 +82,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <main class="container px-3">
+
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2 class="text-center my-4">Register</h2>
+
+                <!-- Display success or error messages -->
+                <?php if (isset($_SESSION['success'])): ?>
+                    <div class="alert alert-success">
+                        <?php
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']); // Clear the message after displaying
+                        ?>
+                    </div>
+                <?php elseif (isset($_SESSION['error'])): ?>
+                    <div class="alert alert-danger">
+                        <?php
+                        echo $_SESSION['error'];
+                        unset($_SESSION['error']); // Clear the message after displaying
+                        ?>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Registration form -->
                 <form action="register.php" method="post" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label for="username">Username</label>
@@ -139,7 +154,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
 </main>
-
 
 <!-- FOOTER -->
 <?php

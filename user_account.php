@@ -1,9 +1,12 @@
+<?php
+# Access session.
+session_start(); ?>
+
 <head>
 	<title>Account Details</title>
 </head>
+
 <?php
-# Access session.
-session_start();
 
 # Redirect if not logged in.
 if (!isset($_SESSION['id'])) {
